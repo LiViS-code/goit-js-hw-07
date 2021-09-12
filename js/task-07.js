@@ -1,22 +1,25 @@
-// ищем элемент ввода
+// получить элемент ввода
 const inputEl = document.querySelector("#font-size-control");
 
-// ищем изменяемый текст
+// получить текст для имземений
 const textEl = document.querySelector("#text");
+
+// узнать значение шрифта документа
+const textSizeDefault = Number(
+  window
+    .getComputedStyle(document.body)
+    .getPropertyValue("font-size")
+    .match(/\d+/)[0]
+);
 
 // функция изменния размера шрифта
 const changeTextSize = () => {
-  let textSize = 0;
-
-  // размер текста в среднем положении ползунка
-  const textSizeDefault = 16;
-
   // новый размер изменяем от 0 до х2
-  textSize = (textSizeDefault * inputEl.value) / 50;
+  const textSize = (textSizeDefault * inputEl.value) / 50;
 
-  // выводим результат
+  // возвращаем результат
   return (textEl.style.fontSize = `${textSize}px`);
 };
 
-// слушаем изменения
+// слушать изменения на поле ввода
 inputEl.addEventListener("input", changeTextSize.bind(inputEl));
