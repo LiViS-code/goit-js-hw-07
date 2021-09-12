@@ -1,22 +1,22 @@
 // найти поле ввода
-const inputEl = document.querySelector("#validation-input");
+const inputElem = document.querySelector("#validation-input");
 
 // узнать сколько значений надо ввести из атрибута элемента
-const dataLength = Number.parseInt(inputEl.getAttribute("data-length"));
+const dataLength = Number.parseInt(inputElem.getAttribute("data-length"));
 
 // функция валидации
 const validation = () => {
   // сохраняем кол-во введенных символов
-  const lengthVal = inputEl.value.length;
+  const lengthVal = inputElem.value.length;
 
-  // если ни чено не ввели или потерли ввод - уходим
+  // если ни чего не ввели или потерли ввод - восстановить как было и уйти
   if (lengthVal === 0) {
-    if (inputEl.classList.contains("invalid")) {
-      inputEl.classList.toggle("invalid");
+    if (inputElem.classList.contains("invalid")) {
+      inputElem.classList.remove("invalid");
     }
 
-    if (inputEl.classList.contains("valid")) {
-      inputEl.classList.toggle("valid");
+    if (inputElem.classList.contains("valid")) {
+      inputElem.classList.remove("valid");
     }
 
     return;
@@ -24,15 +24,15 @@ const validation = () => {
 
   // валидируем поле ввода
   if (lengthVal === dataLength) {
-    if (inputEl.classList.contains("invalid"))
-      return inputEl.classList.replace("invalid", "valid");
-    return inputEl.classList.add("valid");
+    if (inputElem.classList.contains("invalid"))
+      return inputElem.classList.replace("invalid", "valid");
+    return inputElem.classList.add("valid");
   } else {
-    if (inputEl.classList.contains("valid"))
-      return inputEl.classList.replace("valid", "invalid");
-    return inputEl.classList.add("invalid");
+    if (inputElem.classList.contains("valid"))
+      return inputElem.classList.replace("valid", "invalid");
+    return inputElem.classList.add("invalid");
   }
 };
 
-// вешаем прослушку на поле ввода
-inputEl.addEventListener("blur", validation.bind(inputEl));
+// слушать поле ввода на потерю фокуса
+inputElem.addEventListener("blur", validation.bind(inputElem));

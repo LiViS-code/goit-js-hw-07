@@ -17,7 +17,7 @@ const changeTextSize = () => {
   // новый размер изменяем от 0 до х2
   const textSize = (textSizeDefault * inputEl.value) / 50;
 
-  // возвращаем результат
+  // вернуть результат
   return (textEl.style.fontSize = `${textSize}px`);
 };
 

@@ -1,19 +1,24 @@
-// находим поле ввода
-const inputValue = document.querySelector("#name-input");
+// найти поле ввода
+const inputValueElem = document.querySelector("#name-input");
 
-// находим место вывода текста
-const outputValue = document.querySelector("#name-output");
+// найти место вывода текста
+const outputValueElem = document.querySelector("#name-output");
 
-// сохраняем значение вывода по умолчанию
-const defaultValue = outputValue.textContent;
+// сохранить значение вывода по умолчанию
+const defaultValue = outputValueElem.textContent;
 
 // функция изменениия значения вывода
 const changeValue = () => {
-  if (inputValue.value !== "") {
-    return (outputValue.textContent = inputValue.value);
+  if (inputValueElem.value !== "") {
+    return (outputValueElem.textContent = inputValueElem.value);
   }
-  return (outputValue.textContent = defaultValue);
+
+  // вернуть исходное состояние, если ни чего не изменилось
+  return (outputValueElem.textContent = defaultValue);
 };
 
-// слушаем изменения в поле ввода
-inputValue.addEventListener("input", changeValue.bind(inputValue.value));
+// слушать изменения в поле ввода
+inputValueElem.addEventListener(
+  "input",
+  changeValue.bind(inputValueElem.value)
+);

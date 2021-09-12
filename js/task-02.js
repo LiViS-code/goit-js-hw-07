@@ -1,8 +1,4 @@
-// ЗАДАНИЕ
-/*
- * Напиши скрипт, который для каждого элемента массива ingredients создаст отдельный li, после чего вставит все li за одну операцию в список ul.ingredients. Для создания DOM-узлов используй document.createElement()
- */
-
+// исходный массив данных
 const ingredients = [
   "Картошка",
   "Грибы",
@@ -12,10 +8,20 @@ const ingredients = [
   "Приправы",
 ];
 
+// найти список для добавления
+const listElem = document.querySelector("#ingredients");
+
+// переменная для хранения значения элемента списка
 let listItem;
 
+// добавить каждый элемент массива как отдельный элемент списка
 ingredients.forEach((ingredient) => {
+  // создать элемент списка
   listItem = document.createElement("li");
+
+  // заполнить содержимым из масиива данных
   listItem.textContent = ingredient;
-  document.querySelector("#ingredients").appendChild(listItem);
+
+  // добавить готовый элемент в список
+  listElem.appendChild(listItem);
 });
