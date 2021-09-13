@@ -19,11 +19,8 @@ const createBoxes = function (amount) {
 
     // добавить стили
     div.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
-    div.style.width = `${sizeDiv}px`;
-    div.style.height = `${sizeDiv}px`;
-
-    // увеличить размер для следующего div
-    sizeDiv += 10;
+    div.style.width = `${sizeDiv * i}px`;
+    div.style.height = `${sizeDiv * i}px`;
 
     // добавить новый div к фрагменту
     fragment.appendChild(div);
