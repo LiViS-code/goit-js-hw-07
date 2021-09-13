@@ -7,7 +7,7 @@ const inputValue = () => (amountDivs = Number(inputElem.value));
 // функция создания div
 const createBoxes = function (amount) {
   // размер певого div
-  let sizeDiv = 30;
+  const sizeDiv = 30;
 
   // фрагмент для вставки в DOM
   const fragment = document.createDocumentFragment();
@@ -15,7 +15,7 @@ const createBoxes = function (amount) {
   // создать необходимое кол-во div
   for (let i = 1; i <= amount; i += 1) {
     // создать div
-    let div = document.createElement("div");
+    const div = document.createElement("div");
 
     // добавить стили
     div.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
