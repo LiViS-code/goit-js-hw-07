@@ -5,12 +5,12 @@ const randomColor = () => Math.floor(Math.random() * 256);
 const inputValue = () => (amountDivs = Number(inputElem.value));
 
 // функция создания div
-const createBoxes = function () {
+const createBoxes = function (amount) {
   // размер певого div
   let sizeDiv = 30;
 
   // создать необходимое кол-во div
-  for (let i = 1; i <= amountDivs; i += 1) {
+  for (let i = 1; i <= amount; i += 1) {
     // вставить div в страничку
     document
       .querySelector("#boxes")
@@ -26,7 +26,7 @@ const createBoxes = function () {
 
 // функция удаления div
 const destroyBoxes = function () {
-  // удалять div пока они есть
+  // удалять созданные div пока они есть у родителя
   while (divBoxesElem.children.length > 0)
     divBoxesElem.querySelector("div").remove();
 };
@@ -38,7 +38,7 @@ const divBoxesElem = document.querySelector("#boxes");
 const inputElem = document.querySelector("input[type = 'number']");
 
 // получить ввод от пользователя
-let amountDivs = 0;
+let amountDivs = 0; // значение по умолчанию - ни чего не делать
 inputElem.addEventListener("blur", inputValue.bind(inputElem));
 
 // найти кнопки для действий пользователя
@@ -46,5 +46,5 @@ const btnRenderElem = document.querySelector("button[data-action='render']");
 const btnDestroyElem = document.querySelector("button[data-action='destroy']");
 
 // слушать нажатия кнопок
-btnRenderElem.addEventListener("click", createBoxes);
+btnRenderElem.addEventListener("click", () => createBoxes(amountDivs));
 btnDestroyElem.addEventListener("click", destroyBoxes);
