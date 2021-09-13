@@ -1,4 +1,4 @@
-// исходный массив ссылок на изображения
+// исходный массив объектов с изображениями
 const images = [
   {
     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -36,12 +36,33 @@ document.querySelector("style").insertAdjacentHTML(
 `
 );
 
-// добавить изображения на страничку с добвавлением созданных классов
+// создать фрагмент для добавления в DOM
+const fragment = document.createDocumentFragment();
+
+// перебрать массив изображений и заполнить фрагмент
 images.forEach((image) => {
-  document
-    .querySelector("#gallery")
-    .insertAdjacentHTML(
-      "beforeend",
-      `<li class=list-item><img class="gallery-image" src="${image.url}" alt="${image.alt}"></img></li>`
-    );
+  // создать элемент списка
+  const liElem = document.createElement("li");
+
+  // создать класс для элемента списка
+  liElem.className = "list-item";
+
+  // создать элемент с изображением
+  const imgElem = document.createElement("img");
+
+  // создать класс для изображения
+  imgElem.className = "gallery-image";
+
+  // создать атрибуты для изображения
+  imgElem.setAttribute("src", `${image.url}`);
+  imgElem.setAttribute("alt", `${image.alt}`);
+
+  // добавить элемент изображения в элемент списка
+  liElem.appendChild(imgElem);
+
+  // добавить созданный элемент списка к фрагменту
+  fragment.appendChild(liElem);
 });
+
+// внести изменения в DOM
+document.querySelector("#gallery").appendChild(fragment);
