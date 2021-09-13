@@ -16,7 +16,7 @@ ingredients.forEach(function (ingredient) {
   // создать элемент списка
   let liElem = document.createElement("li");
 
-  // заполнить содержимым из масиива данных
+  // заполнить содержимым из масcива данных
   liElem.textContent = ingredient;
 
   // добавить элемент списка во фрагмент
