@@ -9,19 +9,28 @@ const createBoxes = function (amount) {
   // размер певого div
   let sizeDiv = 30;
 
+  // фрагмент для вставки в DOM
+  const fragment = document.createDocumentFragment();
+
   // создать необходимое кол-во div
   for (let i = 1; i <= amount; i += 1) {
-    // вставить div в страничку
-    document
-      .querySelector("#boxes")
-      .insertAdjacentHTML(
-        "beforeend",
-        `<div style="background-color: rgb(${randomColor()}, ${randomColor()}, ${randomColor()}); width: ${sizeDiv}px; height: ${sizeDiv}px"></div>`
-      );
+    // создать div
+    let div = document.createElement("div");
 
-    // увеличить размер следующего div
+    // добавить стили
+    div.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+    div.style.width = `${sizeDiv}px`;
+    div.style.height = `${sizeDiv}px`;
+
+    // увеличить размер для следующего div
     sizeDiv += 10;
+
+    // добавить новый div к фрагменту
+    fragment.appendChild(div);
   }
+
+  // внести изменения в DOM
+  divBoxesElem.appendChild(fragment);
 };
 
 // функция удаления div
