@@ -8,20 +8,23 @@ const ingredients = [
   "Приправы",
 ];
 
+// переменная для хранения фрагмента списка
+const fragment = document.createDocumentFragment();
+
+// добавить каждый элемент массива как отдельный элемент списка
+ingredients.forEach(function (ingredient) {
+  // создать элемент списка
+  let liElem = document.createElement("li");
+
+  // заполнить содержимым из масиива данных
+  liElem.textContent = ingredient;
+
+  // добавить элемент списка во фрагмент
+  fragment.appendChild(liElem);
+});
+
 // найти список для добавления
 const listElem = document.querySelector("#ingredients");
 
-// переменная для хранения значения элемента списка
-let listItem;
-
-// добавить каждый элемент массива как отдельный элемент списка
-ingredients.forEach((ingredient) => {
-  // создать элемент списка
-  listItem = document.createElement("li");
-
-  // заполнить содержимым из масиива данных
-  listItem.textContent = ingredient;
-
-  // добавить готовый элемент в список
-  listElem.appendChild(listItem);
-});
+// добавить готовый фрагмент в DOM
+listElem.appendChild(fragment);
