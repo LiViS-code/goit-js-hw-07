@@ -23,11 +23,11 @@ const createBoxes = function (amount) {
     div.style.height = `${sizeDiv * i}px`;
 
     // добавить новый div к фрагменту
-    fragment.appendChild(div);
+    fragment.append(div);
   }
 
   // внести изменения в DOM
-  divBoxesElem.appendChild(fragment);
+  divBoxesElem.append(fragment);
 };
 
 // функция удаления div
