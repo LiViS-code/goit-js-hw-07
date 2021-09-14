@@ -17,21 +17,33 @@ const images = [
 // всатвить фрагмент CSS кода для стилизации будущих изображений
 document.querySelector("style").insertAdjacentHTML(
   "beforeend",
+
   `#gallery {
     list-style-type: none;
     padding-left: 0;
   }
+
   .list-item {
     margin-left: 0;
   }
+
   .list-item:not(:last-child) {
     margin-bottom: 5vmin;
   }
+
   .gallery-image {
     display: block;
     margin: 0 auto;
     width: 80%;
     border-radius: 3vmin;
+    transform: scale(1);
+    transition: transform 250ms ease-in-out;
+  }
+
+  .gallery-image:focus,
+  .gallery-image:hover {
+    transform: scale(1.1);
+  }
 }
 `
 );
@@ -42,26 +54,26 @@ const fragment = document.createDocumentFragment();
 // перебрать массив изображений и заполнить фрагмент
 images.forEach((image) => {
   // создать элемент списка
-  const liElem = document.createElement("li");
+  const liEl = document.createElement("li");
 
   // создать класс для элемента списка
-  liElem.className = "list-item";
+  liEl.className = "list-item";
 
   // создать элемент с изображением
-  const imgElem = document.createElement("img");
+  const imgEl = document.createElement("img");
 
   // создать класс для изображения
-  imgElem.className = "gallery-image";
+  imgEl.className = "gallery-image";
 
   // создать атрибуты для изображения
-  imgElem.setAttribute("src", `${image.url}`);
-  imgElem.setAttribute("alt", `${image.alt}`);
+  imgEl.src = `${image.url}`;
+  imgEl.alt = `${image.alt}`;
 
   // добавить элемент изображения в элемент списка
-  liElem.appendChild(imgElem);
+  liEl.appendChild(imgEl);
 
   // добавить созданный элемент списка к фрагменту
-  fragment.appendChild(liElem);
+  fragment.appendChild(liEl);
 });
 
 // внести изменения в DOM
