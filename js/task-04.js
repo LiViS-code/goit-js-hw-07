@@ -1,28 +1,27 @@
 // хранит текущее значение счетчика
 let counterValue = 0;
 
-// функция изменения счетчика
-const increment = () => {
-  counterValue += 1;
-  return newValue(counterValue);
-};
-
-// функция уменьшение счетчика
-const decrement = () => {
-  counterValue -= 1;
-  return newValue(counterValue);
-};
+// найти счетчкик
+let elem = document.getElementById("value");
 
 // функция изменения значения на страничке
-const newValue = (counter) => {
-  let elem = document.getElementById("value");
-  return (elem.textContent = `${counter}`);
+const newValue = (increment) => {
+  // получить следующее значение счетчика
+  counterValue += increment;
+
+  // поменять значение поля на страничке
+  elem.textContent = `${counterValue}`;
 };
 
-// найти кнопоки управления счетчиком
+// найти кнпки управления счетчиком
 const btnDecrementRef = document.querySelector("[data-action='decrement']");
 const btnIncrementRef = document.querySelector("[data-action='increment']");
 
 // слушать нажатие кнопок
-btnDecrementRef.addEventListener("click", decrement);
-btnIncrementRef.addEventListener("click", increment);
+btnDecrementRef.addEventListener("click", () => {
+  newValue(-1);
+});
+
+btnIncrementRef.addEventListener("click", () => {
+  newValue(1);
+});
