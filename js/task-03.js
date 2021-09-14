@@ -48,22 +48,21 @@ document.querySelector("style").insertAdjacentHTML(
 `
 );
 
-// создать фрагмент для добавления в DOM
-const fragment = document.createDocumentFragment();
+// перебрать исходный массив изображений и заполнить списки
+function getListImg() {
+  const listArray = [];
+  images.forEach((image) => {
+    const liEl = document.createElement("li");
+    liEl.className = "list-item";
+    liEl.insertAdjacentHTML(
+      "afterbegin",
+      `<img class = "gallery-image" src = ${image.url} alt = ${image.alt}>`
+    );
 
-// перебрать массив изображений и заполнить фрагмент
-images.forEach((image) => {
-  // создать элемент списка
-  let liEl = document.createElement("li");
-  liEl.className = "list-item";
-  liEl.insertAdjacentHTML(
-    "afterbegin",
-    `<img class = "gallery-image" src = ${image.url} alt = ${image.alt}>`
-  );
-
-  // добавить созданный элемент списка к фрагменту
-  fragment.append(liEl);
-});
+    listArray.push(liEl);
+  });
+  return listArray;
+}
 
 // внести изменения в DOM
-document.querySelector("#gallery").append(fragment);
+document.querySelector("#gallery").append(...getListImg());
