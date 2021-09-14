@@ -11,14 +11,12 @@ const validation = () => {
 
   // если ни чего не ввели или потерли ввод - восстановить как было и уйти
   if (lengthVal === 0) {
-    if (inputElem.classList.contains("invalid")) {
-      inputElem.classList.remove("invalid");
+    if (
+      inputElem.classList.contains("invalid") ||
+      inputElem.classList.contains("valid")
+    ) {
+      inputElem.className = "";
     }
-
-    if (inputElem.classList.contains("valid")) {
-      inputElem.classList.remove("valid");
-    }
-
     return;
   }
 
