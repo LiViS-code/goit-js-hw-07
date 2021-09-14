@@ -54,27 +54,16 @@ const fragment = document.createDocumentFragment();
 // перебрать массив изображений и заполнить фрагмент
 images.forEach((image) => {
   // создать элемент списка
-  const liEl = document.createElement("li");
-
-  // создать класс для элемента списка
+  let liEl = document.createElement("li");
   liEl.className = "list-item";
-
-  // создать элемент с изображением
-  const imgEl = document.createElement("img");
-
-  // создать класс для изображения
-  imgEl.className = "gallery-image";
-
-  // создать атрибуты для изображения
-  imgEl.src = `${image.url}`;
-  imgEl.alt = `${image.alt}`;
-
-  // добавить элемент изображения в элемент списка
-  liEl.appendChild(imgEl);
+  liEl.insertAdjacentHTML(
+    "afterbegin",
+    `<img class = "gallery-image" src = ${image.url} alt = ${image.alt}>`
+  );
 
   // добавить созданный элемент списка к фрагменту
-  fragment.appendChild(liEl);
+  fragment.append(liEl);
 });
 
 // внести изменения в DOM
-document.querySelector("#gallery").appendChild(fragment);
+document.querySelector("#gallery").append(fragment);

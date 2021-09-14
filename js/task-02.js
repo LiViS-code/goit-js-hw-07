@@ -20,11 +20,11 @@ ingredients.forEach(function (ingredient) {
   liElem.textContent = ingredient;
 
   // добавить элемент списка во фрагмент
-  fragment.appendChild(liElem);
+  fragment.append(liElem);
 });
 
 // найти список для добавления
 const listElem = document.querySelector("#ingredients");
 
 // добавить готовый фрагмент в DOM
-listElem.appendChild(fragment);
+listElem.append(fragment);
