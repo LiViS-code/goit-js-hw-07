@@ -55,7 +55,7 @@ function getListImg() {
       `<li class = "list-item"><img class = "gallery-image" src = ${image.url} alt = ${image.alt}></li>`
   );
 
-  return listImgsLinks;
+  return listImgsLinks.join(" ");
 }
 
 // внести изменения в DOM
