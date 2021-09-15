@@ -13,15 +13,14 @@ const newValue = (increment) => {
   elem.textContent = `${counterValue}`;
 };
 
-// найти кнпки управления счетчиком
-const btnDecrementRef = document.querySelector("[data-action='decrement']");
-const btnIncrementRef = document.querySelector("[data-action='increment']");
+// найти кнопки управления счетчиком
+const btnsAction = document.querySelectorAll("#counter button");
 
 // слушать нажатие кнопок
-btnDecrementRef.addEventListener("click", () => {
+btnsAction[0].addEventListener("click", () => {
   newValue(-1);
 });
 
-btnIncrementRef.addEventListener("click", () => {
+btnsAction[1].addEventListener("click", () => {
   newValue(1);
 });
