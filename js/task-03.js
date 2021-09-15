@@ -50,12 +50,14 @@ document.querySelector("style").insertAdjacentHTML(
 
 // перебрать исходный массив изображений и заполнить списки
 function getListImg() {
-  const listImgsLinks = images.map(
-    (image) =>
-      `<li class = "list-item"><img class = "gallery-image" src = ${image.url} alt = ${image.alt}></li>`
-  );
+  const listImgsLinks = images
+    .map(
+      (image) =>
+        `<li class = "list-item"><img class = "gallery-image" src = ${image.url} alt = ${image.alt}></li>`
+    )
+    .join(" ");
 
-  return listImgsLinks.join(" ");
+  return listImgsLinks;
 }
 
 // внести изменения в DOM
