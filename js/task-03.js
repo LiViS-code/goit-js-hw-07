@@ -50,19 +50,15 @@ document.querySelector("style").insertAdjacentHTML(
 
 // перебрать исходный массив изображений и заполнить списки
 function getListImg() {
-  const listArray = [];
+  let listStr = "";
   images.forEach((image) => {
-    const liEl = document.createElement("li");
-    liEl.className = "list-item";
-    liEl.insertAdjacentHTML(
-      "afterbegin",
-      `<img class = "gallery-image" src = ${image.url} alt = ${image.alt}>`
-    );
-
-    listArray.push(liEl);
+    const liEl = `<li class = "list-item"><img class = "gallery-image" src = ${image.url} alt = ${image.alt}></li>`;
+    listStr += liEl;
   });
-  return listArray;
+  return listStr;
 }
 
 // внести изменения в DOM
-document.querySelector("#gallery").append(...getListImg());
+document
+  .querySelector("#gallery")
+  .insertAdjacentHTML("afterbegin", getListImg());
