@@ -14,13 +14,13 @@ const newValueCounter = (increment) => {
 const btnsAction = document.querySelectorAll("#counter button");
 
 // расставляем прослушку на кнопки
-btnsAction.forEach((elem) => {
+btnsAction.forEach((elem, index) => {
   if (elem.dataset.action === "decrement") {
-    btnsAction[0].addEventListener("click", () => {
+    btnsAction[index].addEventListener("click", () => {
       newValueCounter(elem.textContent | 0);
     });
   } else {
-    btnsAction[1].addEventListener("click", () => {
+    btnsAction[index].addEventListener("click", () => {
       newValueCounter(elem.textContent | 0);
     });
   }
