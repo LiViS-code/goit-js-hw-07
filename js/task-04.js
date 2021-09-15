@@ -1,15 +1,14 @@
 // хранит текущее значение счетчика
 let counterValue = 0;
+const incrementValue = 1;
+const decrementValue = -1;
 
 // найти счетчкик
 let elem = document.getElementById("value");
 
 // функция изменения значения на страничке
-const newValue = (increment) => {
-  // получить следующее значение счетчика
+const newValueCounter = (increment) => {
   counterValue += increment;
-
-  // поменять значение поля на страничке
   elem.textContent = `${counterValue}`;
 };
 
@@ -18,9 +17,9 @@ const btnsAction = document.querySelectorAll("#counter button");
 
 // слушать нажатие кнопок
 btnsAction[0].addEventListener("click", () => {
-  newValue(-1);
+  newValueCounter(decrementValue);
 });
 
 btnsAction[1].addEventListener("click", () => {
-  newValue(1);
+  newValueCounter(incrementValue);
 });
