@@ -13,8 +13,8 @@ const newValueCounter = (increment) => {
 // найти кнопки управления счетчиком
 const btnsAction = document.querySelectorAll("#counter button");
 
-const incrementValue = btnsAction[0].textContent | 0;
-const decrementValue = btnsAction[1].textContent | 0;
+const decrementValue = btnsAction[0].textContent | 0;
+const incrementValue = btnsAction[1].textContent | 0;
 
 // слушать нажатие кнопок
 btnsAction[0].addEventListener("click", () => {
