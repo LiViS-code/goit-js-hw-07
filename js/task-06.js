@@ -2,7 +2,7 @@
 const inputElem = document.querySelector("#validation-input");
 
 // узнать сколько значений надо ввести из атрибута элемента
-const dataLength = Number.parseInt(inputElem.getAttribute("data-length"));
+const dataLength = inputElem.getAttribute("data-length");
 
 // функция валидации
 const validation = () => {
@@ -21,7 +21,7 @@ const validation = () => {
   }
 
   // валидируем поле ввода
-  if (lengthVal === dataLength) {
+  if (lengthVal == dataLength) {
     if (inputElem.classList.contains("invalid"))
       return inputElem.classList.replace("invalid", "valid");
     return inputElem.classList.add("valid");
