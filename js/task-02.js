@@ -8,15 +8,14 @@ const ingredients = [
   "Приправы",
 ];
 
-// добавить каждый элемент массива как отдельный элемент списка
-function getListIngredient() {
-  const liArray = [];
-  ingredients.forEach(function (ingredient) {
-    const liElem = document.createElement("li");
-    liElem.textContent = ingredient;
-    liArray.push(liElem);
-  });
-  return liArray;
-}
+const createListEl = (elem) => {
+  const liEl = document.createElement("li");
+  liEl.textContent = elem;
+  return liEl;
+};
 
-document.querySelector("#ingredients").append(...getListIngredient());
+const getIngredientList = (array) => array.map((elem) => createListEl(elem));
+
+document
+  .querySelector("#ingredients")
+  .append(...getIngredientList(ingredients));
