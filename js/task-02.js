@@ -8,13 +8,14 @@ const ingredients = [
   "Приправы",
 ];
 
-const createListEl = (elem) => {
-  const liEl = document.createElement("li");
-  liEl.textContent = elem;
-  return liEl;
+const createListMarkup = (elem) => {
+  const liMarkup = document.createElement("li");
+  liMarkup.textContent = elem;
+  return liMarkup;
 };
 
-const getIngredientList = (array) => array.map((elem) => createListEl(elem));
+const getIngredientList = (array) =>
+  array.map((elem) => createListMarkup(elem));
 
 document
   .querySelector("#ingredients")
