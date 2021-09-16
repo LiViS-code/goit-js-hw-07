@@ -1,36 +1,36 @@
 // найти поле ввода
-const inputElem = document.querySelector("#validation-input");
+const inputEl = document.querySelector("#validation-input");
 
 // узнать сколько значений надо ввести из атрибута элемента
-const dataLength = inputElem.getAttribute("data-length");
+const dataLength = inputEl.getAttribute("data-length");
 
 // функция валидации
-const validation = () => {
+const validationInputClass = () => {
   // сохраняем кол-во введенных символов
-  const lengthVal = inputElem.value.length;
+  const lengthVal = inputEl.value.length;
 
   // если ни чего не ввели или потерли ввод - восстановить как было и уйти
   if (lengthVal === 0) {
     if (
-      inputElem.classList.contains("invalid") ||
-      inputElem.classList.contains("valid")
+      inputEl.classList.contains("invalid") ||
+      inputEl.classList.contains("valid")
     ) {
-      inputElem.className = "";
+      inputEl.className = "";
     }
     return;
   }
 
   // валидируем поле ввода
   if (lengthVal == dataLength) {
-    if (inputElem.classList.contains("invalid"))
-      return inputElem.classList.replace("invalid", "valid");
-    return inputElem.classList.add("valid");
+    if (inputEl.classList.contains("invalid"))
+      return inputEl.classList.replace("invalid", "valid");
+    return inputEl.classList.add("valid");
   } else {
-    if (inputElem.classList.contains("valid"))
-      return inputElem.classList.replace("valid", "invalid");
-    return inputElem.classList.add("invalid");
+    if (inputEl.classList.contains("valid"))
+      return inputEl.classList.replace("valid", "invalid");
+    return inputEl.classList.add("invalid");
   }
 };
 
 // слушать поле ввода на потерю фокуса
-inputElem.addEventListener("blur", validation.bind(inputElem));
+inputEl.addEventListener("blur", validationInputClass.bind(inputEl));
