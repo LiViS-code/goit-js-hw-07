@@ -8,16 +8,16 @@ const outputValueEl = document.querySelector("#name-output");
 const defaultValue = outputValueEl.textContent;
 
 // определить изменение значения
-const changeValue = (value) => {
-  if (value !== "") {
-    return newValueOutput(value);
+const changeValue = (currentValue) => {
+  if (currentValue !== "") {
+    return newValueOutput(currentValue);
   }
   // вернуть исходное состояние, если ни чего не изменилось
   return newValueOutput(defaultValue);
 };
 
 // записать новое значение
-const newValueOutput = (value) => (outputValueEl.textContent = value);
+const newValueOutput = (newValue) => (outputValueEl.textContent = newValue);
 
 // слушать изменения в поле ввода
 inputValueEl.addEventListener("input", () => changeValue(inputValueEl.value));
