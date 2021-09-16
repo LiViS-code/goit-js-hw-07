@@ -48,17 +48,12 @@ document.querySelector("style").insertAdjacentHTML(
 `
 );
 
-// перебрать исходный массив изображений и заполнить списки
-function getListImg() {
-  const listImgsLinks = images
-    .map(
-      (image) =>
-        `<li class = "list-item"><img class = "gallery-image" src = ${image.url} alt = ${image.alt}></li>`
-    )
-    .join(" ");
+// создать шаблонную строку
+const setListImg = (elem) =>
+  `<li class = "list-item"><img class = "gallery-image" src = ${elem.url} alt = ${elem.alt}></li>`;
 
-  return listImgsLinks;
-}
+// создать массив данных для вывода
+const getListImg = () => images.map((image) => setListImg(image)).join(" ");
 
 // внести изменения в DOM
 document
