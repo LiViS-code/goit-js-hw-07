@@ -20,4 +20,6 @@ const changeValue = (currentValue) => {
 const newValueOutput = (newValue) => (outputValueEl.textContent = newValue);
 
 // слушать изменения в поле ввода
-inputValueEl.addEventListener("input", () => changeValue(inputValueEl.value));
+inputValueEl.addEventListener("input", () =>
+  changeValue(event.currentTarget.value)
+);
