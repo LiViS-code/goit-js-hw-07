@@ -3,25 +3,18 @@ const inputValue = () => (amountDivs = inputEl.value | 0);
 
 // функция создания div
 const createBoxes = (amount) => {
-  // размер певого div
+  // размер певого и прирост для следующего div
   const sizeDiv = 30;
+  const delta = 10;
 
   // массив для создаваемых div
-  const divBoxes = [];
-
-  // создать указанное кол-во div
-  for (let i = 1; i <= amount; i += 1) {
-    // создать div
-    const div = document.createElement("div");
-
-    // добавить стили
-    div.style.backgroundColor = `#${Math.random().toString(16).slice(3, 9)}`;
-    div.style.width = `${sizeDiv * i}px`;
-    div.style.height = div.style.width;
-
-    // сохранить созданный div в массив
-    divBoxes.push(div);
-  }
+  const divBoxes = new Array(amount).fill(0).map((elem, index) => {
+    elem = document.createElement("div");
+    elem.style.backgroundColor = `#${Math.random().toString(16).slice(3, 9)}`;
+    elem.style.width = sizeDiv + delta * index + "px";
+    elem.style.height = elem.style.width;
+    return elem;
+  });
 
   // внести изменения в DOM
   divBoxesEl.append(...divBoxes);

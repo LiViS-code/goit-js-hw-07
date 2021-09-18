@@ -15,13 +15,16 @@ const btnsAction = document.querySelectorAll("#counter button");
 
 // расставляем прослушку на кнопки
 btnsAction.forEach((elem, index) => {
-  if (elem.dataset.action === "decrement") {
-    btnsAction[index].addEventListener("click", () => {
-      newValueCounter(elem.textContent | 0);
-    });
-  } else {
-    btnsAction[index].addEventListener("click", () => {
-      newValueCounter(elem.textContent | 0);
-    });
+  switch (elem.dataset.action) {
+    case "decrement":
+      btnsAction[index].addEventListener("click", () => {
+        newValueCounter(elem.textContent | 0);
+      });
+      break;
+    case "increment":
+      btnsAction[index].addEventListener("click", () => {
+        newValueCounter(elem.textContent | 0);
+      });
+      break;
   }
 });
