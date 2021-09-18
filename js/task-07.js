@@ -13,13 +13,8 @@ const textSizeDefault = Number(
 );
 
 // функция изменния размера шрифта
-const changeTextSize = () => {
-  // новый размер изменяем от 0 до х2
-  const textSize = (textSizeDefault * inputEl.value) / 50;
-
-  // вернуть результат
-  return (textEl.style.fontSize = `${textSize}px`);
-};
+const changeTextSize = () =>
+  (textEl.style.fontSize = `${(textSizeDefault * inputEl.value) / 50}px`);
 
 // слушать изменения на поле ввода
 inputEl.addEventListener("input", changeTextSize.bind(inputEl));
